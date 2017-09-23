@@ -1,0 +1,54 @@
+{
+  "name": "inkiit_sharer",
+  "version": "1.0.0",
+  "description": "Medium-like share dialog",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest --coverage",
+    "prebuild": "rimraf dist",
+    "build": "npm-run-all --parallel build:*",
+    "build:dev": "babel --copy-files  --out-dir dist --ignore *.test.js src",
+    "build:main": "webpack --output-filename twitter_sharer.min.js -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "(https://github.com/williamtran29/inkiit_sharer)"
+  },
+  "keywords": [
+    "sharer",
+    "twitter"
+  ],
+  "jest": {
+    "collectCoverageFrom": [
+      "**/*.{js}",
+      "!**/node_modules/**",
+      "!**/dist/**",
+      "!**/coverage/**",
+      "!**/webpack.config.babel.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 30,
+        "functions": 50,
+        "lines": 50,
+        "statements": 50
+      }
+    }
+  },
+  "author": "William Tran <chitran.whitecat@gmail.com> (https://github.com/williamtran29)",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "6.26.0",
+    "babel-core": "6.26.0",
+    "babel-jest": "21.0.2",
+    "babel-loader": "7.1.2",
+    "babel-plugin-transform-class-properties": "6.24.1",
+    "babel-preset-env": "1.6.0",
+    "jest": "21.1.0",
+    "npm-run-all": "4.1.1",
+    "path": "0.12.7",
+    "regenerator-runtime": "0.11.0",
+    "rimraf": "2.6.2",
+    "webpack": "3.6.0"
+  }
+}
